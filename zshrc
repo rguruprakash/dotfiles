@@ -1,5 +1,6 @@
-# If you come from bash you might have to change your $PATH.
+#If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export EDITOR=nvim
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/grajakkannu/.oh-my-zsh"
@@ -17,6 +18,7 @@ plugins=(
   git
   kube-ps1
   autojump
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -53,11 +55,10 @@ build_prompt
 # kubectl config
 if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 
-# java
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home"
-export PYTHON2_HOME="/usr/local/Cellar/python@2/2.7.16"
-export PYTHON3_HOME="/usr/local/Cellar/python/3.7.3"
-export PATH=$PYTHON2_HOME:$PYTHON3_HOME:$JAVA_HOME/bin/java:$PATH
+# for pyenv to work properly
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 # Aliases
 # TIP: Use \vi to ignore the alias and open the actual vi
@@ -66,5 +67,10 @@ alias vi="nvim"
 alias vimconfig="vi ~/.vimrc"
 alias zshconfig="vi ~/.zshrc"
 alias tmux="TERM=screen-256color-bce tmux"
+alias air='$(go env GOPATH)/bin/air'
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/bin/java:$PATH"
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+PATH=$PATH:$HOME/.local/bin
+PATH=$PATH:$HOME/go/bin
