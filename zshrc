@@ -99,8 +99,6 @@ PATH="$PATH:/Users/grajakkannu/.local/share/nvim/mason/bin"
 export JAVA_HOME="/Users/grajakkannu/Library/Caches/Coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_mac_hotspot_8u292b10.tar.gz/jdk8u292-b10/Contents/Home"
 # <<< JVM installed by coursier <<<
 
-export OPENAI_API_KEY="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"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
