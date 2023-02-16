@@ -90,8 +90,8 @@ shift + cmd + ctrl - d  : yabai -m display --focus prev || yabai -m display --fo
 # ctrl + alt - 3  : yabai -m display --focus 3
 
 # send window to monitor and follow focus
-cmd + ctrl + alt - d : sh ~/scripts/move_and_follow.sh next first
-shift + cmd + ctrl + alt - d : sh ~/scripts/move_and_follow.sh prev last 
+cmd + ctrl + alt - d : sh ~/dotfiles/scripts/move_and_follow.sh next first
+shift + cmd + ctrl + alt - d : sh ~/dotfiles/scripts/move_and_follow.sh prev last 
 
 # toggle window split type
 shift + cmd + ctrl - space : yabai -m window --toggle split
