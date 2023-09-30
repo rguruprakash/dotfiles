@@ -18,6 +18,7 @@ plugins=(
   git
   kube-ps1
   autojump
+  # zsh-autosuggestions
   zsh-syntax-highlighting
   # vi-mode
 )
@@ -74,32 +75,33 @@ fi
 
 # Aliases
 # TIP: Use \vi to ignore the alias and open the actual vi
+# alias nvim="~/nvim-macos/bin/nvim"
 alias vim="nvim"
 alias vi="nvim"
+alias vi-astro="NVIM_APPNAME=AstroNvim nvim"
+alias vi-nvchad="NVIM_APPNAME=NvChad nvim"
+# alias vi-lunar="NVIM_APPNAME=LunarNvim nvim"
+alias vi-lazy="NVIM_APPNAME=LazyNvim nvim"
 alias zshrc="vi ~/.zshrc"
 alias yabairc="vi ~/.yabairc"
 alias skhdrc="vi ~/.skhdrc"
-alias vimluaconfig="vi ~/.config/nvim/config/config.lua"
+alias spacebarrc="vi ~/.config/spacebar/spacebarrc"
+# alias vimluaconfig="vi ~/.config/nvim/config/config.lua"
 alias tmux="TERM=screen-256color-bce tmux"
 alias air='$(go env GOPATH)/bin/air'
+alias lg='lazygit'
+alias lzd='lazydocker'
+alias docker='podman'
+alias docker-compose='podman-compose'
 
+export DOCKER_HOST='unix:///Users/grajakkannu/.local/share/containers/podman/machine/qemu/podman.sock'
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/bin/java:$PATH"
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 PATH=$PATH:$HOME/.local/bin
 PATH=$PATH:$HOME/go/bin
-# >>> coursier install directory >>>
-PATH="$PATH:/Users/grajakkannu/Library/Application Support/Coursier/bin"
-# <<< coursier install directory <<<
-# >>> mason.nvim install directory >>>
-PATH="$PATH:/Users/grajakkannu/.local/share/nvim/mason/bin"
-# <<< mason.nvim install directory <<<
-
-# >>> JVM installed by coursier >>>
-export JAVA_HOME="/Users/grajakkannu/Library/Caches/Coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_mac_hotspot_8u292b10.tar.gz/jdk8u292-b10/Contents/Home"
-# <<< JVM installed by coursier <<<
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+PATH="$PATH:/Users/grajakkannu/.local/share/nvim/mason/bin" # <<< mason.nvim install directory <<<
+# export JAVA_HOME=`/usr/libexec/java_home -v 17`  # <<< JVM <<<
 [[ -s "/Users/grajakkannu/.gvm/scripts/gvm" ]] && source "/Users/grajakkannu/.gvm/scripts/gvm" 
+export N_PREFIX=$HOME/.n
+export PATH=$N_PREFIX/bin:$PATH
+export PATH="/Users/grajakkannu/git/mask-credentials:$PATH"

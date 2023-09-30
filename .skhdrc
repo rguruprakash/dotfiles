@@ -76,13 +76,38 @@
 # A REFERENCE ONLY, WHEN MAKING YOUR OWN CONFIGURATION..          #
 # ############################################################### #
 
+# move window
+alt - k : yabai -m window --focus north
+alt - j : yabai -m window --focus south 
+alt - h : yabai -m window --focus east 
+alt - l : yabai -m window --focus west 
+
+# move window
+alt + shift - k : yabai -m window --warp north
+alt + shift - j : yabai -m window --warp south 
+alt + shift - h : yabai -m window --warp east 
+alt + shift - l : yabai -m window --warp west 
+
+# Resize windows
+lctrl + alt - h : yabai -m window --resize left:-50:0; \
+                  yabai -m window --resize right:-50:0
+lctrl + alt - j : yabai -m window --resize bottom:0:50; \
+                  yabai -m window --resize top:0:50
+lctrl + alt - k : yabai -m window --resize top:0:-50; \
+                  yabai -m window --resize bottom:0:-50
+lctrl + alt - l : yabai -m window --resize right:50:0; \
+                  yabai -m window --resize left:50:0
+
+# Equalize size of windows
+lctrl + alt - e : yabai -m space --balance
+
 # focus window
-cmd + ctrl - w : yabai -m window --focus next || yabai -m window --focus first
-shift + cmd + ctrl - w : yabai -m window --focus prev || yabai -m window --focus last
+# cmd + ctrl - w : yabai -m window --focus next || yabai -m window --focus first
+# shift + cmd + ctrl - w : yabai -m window --focus prev || yabai -m window --focus last
 
 # focus space 
-cmd + ctrl - s : yabai -m space --focus next || yabai -m space --focus first
-shift + cmd + ctrl - s : yabai -m space --focus prev || yabai -m space --focus last
+# cmd + ctrl - s : yabai -m space --focus next || yabai -m space --focus first
+# shift + cmd + ctrl - s : yabai -m space --focus prev || yabai -m space --focus last
 
 # focus monitor
 cmd + ctrl - d  : yabai -m display --focus next || yabai -m display --focus first
@@ -97,5 +122,9 @@ shift + cmd + ctrl + alt - d : sh ~/dotfiles/scripts/move_and_follow.sh prev las
 shift + cmd + ctrl - space : yabai -m window --toggle split
 cmd + ctrl - space : yabai -m window --toggle zoom-fullscreen
 
+# layouts
+cmd + ctrl - 1 : yabai -m config layout bsp
+cmd + ctrl - 2 : yabai -m config layout stack 
+
 # float / unfloat window and center on screen
-cmd + ctrl - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+# cmd + ctrl - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
