@@ -41,11 +41,11 @@ function go_prompt_version {
         echo "%{$fg_bold[blue]%}go(%{$fg[red]%}$(go version | cut -d ' ' -f 3)%{$fg[blue]%}) %{$reset_color%}"
     fi
 }
-function python_prompt_version {
-    if which node &> /dev/null; then
-        echo "%{$fg_bold[blue]%}python(%{$fg[red]%}$(python -V | cut -d ' ' -f 2)%{$fg[blue]%}) %{$reset_color%}"
-    fi
-}
+# function python_prompt_version {
+#     if which node &> /dev/null; then
+#         echo "%{$fg_bold[blue]%}python(%{$fg[red]%}$(python -V | cut -d ' ' -f 2)%{$fg[blue]%}) %{$reset_color%}"
+#     fi
+# }
 function k8s_prompt {
     if which node &> /dev/null; then
         echo "%{$fg_bold[blue]%}k8s%{$reset_color%}$(kube_ps1)"
@@ -55,7 +55,7 @@ function build_prompt {
     newline=$'\n'
     KUBE_PS1_SYMBOL_ENABLE=false
     VI_MODE_SET_CURSOR=true
-    PROMPT='$(virtualenv_prompt_info)%{[03m%}%{$fg[green]%}%c $(git_prompt_info)$(k8s_prompt) $(node_prompt_version) $(go_prompt_version) $(python_prompt_version) ${newline}%{$fg[red]%}%(!.#.»)%{$reset_color%} '
+    PROMPT='$(virtualenv_prompt_info)%{[03m%}%{$fg[green]%}%c $(git_prompt_info)$(k8s_prompt) $(node_prompt_version) $(go_prompt_version) ${newline}%{$fg[red]%}%(!.#.»)%{$reset_color%} '
 }
 build_prompt
 
@@ -75,10 +75,9 @@ fi
 
 # Aliases
 # TIP: Use \vi to ignore the alias and open the actual vi
-# alias nvim="~/nvim-macos/bin/nvim"
-alias vim="nvim"
-alias vi="nvim"
+alias vi="nvim --listen /tmp/nvim-server.pipe"
 alias vi-astro="NVIM_APPNAME=AstroNvim nvim"
+alias vi-old="NVIM_APPNAME=nvim_old nvim"
 alias vi-nvchad="NVIM_APPNAME=NvChad nvim"
 # alias vi-lunar="NVIM_APPNAME=LunarNvim nvim"
 alias vi-lazy="NVIM_APPNAME=LazyNvim nvim"
@@ -88,7 +87,7 @@ alias skhdrc="vi ~/.skhdrc"
 alias spacebarrc="vi ~/.config/spacebar/spacebarrc"
 # alias vimluaconfig="vi ~/.config/nvim/config/config.lua"
 alias tmux="TERM=screen-256color-bce tmux"
-alias air='$(go env GOPATH)/bin/air'
+# alias air='$(go env GOPATH)/bin/air'
 alias lg='lazygit'
 alias lzd='lazydocker'
 alias docker='podman'
@@ -105,3 +104,5 @@ PATH="$PATH:/Users/grajakkannu/.local/share/nvim/mason/bin" # <<< mason.nvim ins
 export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
 export PATH="/Users/grajakkannu/git/mask-credentials:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
